@@ -1,0 +1,11 @@
+[Unit]
+Description=Auto restart SSH Docker container
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/usr/local/bin/run-ssh-container.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+{
+    "name": "ssh-containers-on-docker",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest",
+            "moby": true
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions" : [
+                "ms-python.python",
+                "donjayamanne.githistory",
+                "github.vscode-github-actions"
+            ]
+        }
+    }
+}
